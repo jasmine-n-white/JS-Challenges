@@ -10,10 +10,13 @@ style.textContent = `
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #f4f4f4;
+        background-color: #a8b4adff;
     }
     form {
         margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
     input[type="text"] {
         padding: 10px;
@@ -77,6 +80,9 @@ todoForm.addEventListener("submit", (e) => {
     if (todoText) {
         addTodoItem(todoText);
         todoInput.value = "";
+    }
+    else {
+        alert("Please enter a todo item.");
     }
 });
 
