@@ -12,7 +12,7 @@ style.textContent = `
         background-color: #f0f0f0;
     }
     h1 {
-        color: #333;
+        color: #060606ff;
     }
     #colorPalette {
         display: grid;
@@ -40,5 +40,24 @@ for (let i = 0; i < 5; i++) {
     palette.appendChild(box);
 }
 
+const generateBtn = document.createElement('button');
+generateBtn.textContent = 'Generate All';
+document.body.insertBefore(generateBtn, palette);
 
-    
+function randomColor() {
+    return '#'+ Math.floor(Math.random()*16777215).toString(16);
+}
+
+palette.querySelectorAll('.colorBox').forEach(box => {
+    box.addEventListener("click", () => {
+        const color = randomColor();
+        box.style.backgroundColor = color;    
+    });
+});
+
+generateBtn.addEventListener('click', () => {
+    palette.querySelectorAll('.colorBox').forEach(box => {
+        const color = randomColor();
+        box.style.backgroundColor = color;
+    })
+})
